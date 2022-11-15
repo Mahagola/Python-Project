@@ -75,6 +75,7 @@ galleryGrid6 = Canvas(galleryContainer, bg="white", width=150, height=150)
 galleryGrid6.place(relx=0.66, rely=0.33)
 
 galleryGrid7 = Canvas(galleryContainer, bg="white", width=150, height=150)
+galleryGrid7.place(relx=0, rely=0.66)
 
 galleryGrid8 = Canvas(galleryContainer, bg="white", width=150, height=150)
 galleryGrid8.place(relx=0.33, rely=0.66)
