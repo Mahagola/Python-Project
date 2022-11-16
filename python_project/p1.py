@@ -11,6 +11,20 @@ var.maxsize(height=610, width=480)
 def fun(i):
     print(i)
 
+def validate(pos, parent):
+    if pos in selected:
+        selected.remove(pos)
+        parent["bg"] = "white"
+    else:
+        selected.append(pos)
+        parent["bg"] = "#1fceff"
+        
+def verify_captcha():
+    if sorted(position) == sorted(selected):
+        msg.showinfo("Success", message="You completed verification successfully")
+    else:
+        msg.showerror("Unsuccessful", message="Try Again!!")
+        
 # heading---------------------------------------------------
 active = random.choice(["cats", "hydrant", "stairs", "traffic"])
 
@@ -104,21 +118,22 @@ for i in range(len(rand_images)):
     if rand_images[i] in images:
         position.append(i)
 
-# gallery for the images
+selected=[] #to store selected images.
 
+# gallery for the images
 image_lust = [ImageTk.PhotoImage(Image.open(rand_images[i]).resize((148,148))) for i in range(9)]
 
 # for i in range(9):
     # Button(galleryGrid[i],text="",image=image_lust[i], command=lambda:fun(i)).place(relx=0.5, rely=0.5, anchor="center")
     
-Button(master=galleryGrid[0],text=str(0),image=image_lust[0], command=lambda:fun(0)).place(relx=0.5, rely=0.5, anchor="center")
-Button(master=galleryGrid[1],text=str(1),image=image_lust[1], command=lambda:fun(1)).place(relx=0.5, rely=0.5, anchor="center")
-Button(master=galleryGrid[2],text=str(2),image=image_lust[2], command=lambda:fun(2)).place(relx=0.5, rely=0.5, anchor="center")
-Button(master=galleryGrid[3],text=str(3),image=image_lust[3], command=lambda:fun(3)).place(relx=0.5, rely=0.5, anchor="center")
-Button(master=galleryGrid[4],text=str(4),image=image_lust[4], command=lambda:fun(4)).place(relx=0.5, rely=0.5, anchor="center")
-Button(master=galleryGrid[5],text=str(5),image=image_lust[5], command=lambda:fun(5)).place(relx=0.5, rely=0.5, anchor="center")
-Button(master=galleryGrid[6],text=str(6),image=image_lust[6], command=lambda:fun(6)).place(relx=0.5, rely=0.5, anchor="center")
-Button(master=galleryGrid[7],text=str(7),image=image_lust[7], command=lambda:fun(7)).place(relx=0.5, rely=0.5, anchor="center")
-Button(master=galleryGrid[8],text=str(8),image=image_lust[8], command=lambda:fun(8)).place(relx=0.5, rely=0.5, anchor="center")
+Button(master=galleryGrid[0],text=str(0),image=image_lust[0], command=lambda:validate(0, galleryGrid[0]), relief=FLAT).place(relx=0.5, rely=0.5, anchor="center")
+Button(master=galleryGrid[1],text=str(1),image=image_lust[1], command=lambda:validate(1, galleryGrid[1]), relief=FLAT).place(relx=0.5, rely=0.5, anchor="center")
+Button(master=galleryGrid[2],text=str(2),image=image_lust[2], command=lambda:validate(2, galleryGrid[2]), relief=FLAT).place(relx=0.5, rely=0.5, anchor="center")
+Button(master=galleryGrid[3],text=str(3),image=image_lust[3], command=lambda:validate(3, galleryGrid[3]), relief=FLAT).place(relx=0.5, rely=0.5, anchor="center")
+Button(master=galleryGrid[4],text=str(4),image=image_lust[4], command=lambda:validate(4, galleryGrid[4]), relief=FLAT).place(relx=0.5, rely=0.5, anchor="center")
+Button(master=galleryGrid[5],text=str(5),image=image_lust[5], command=lambda:validate(5, galleryGrid[5]), relief=FLAT).place(relx=0.5, rely=0.5, anchor="center")
+Button(master=galleryGrid[6],text=str(6),image=image_lust[6], command=lambda:validate(6, galleryGrid[6]), relief=FLAT).place(relx=0.5, rely=0.5, anchor="center")
+Button(master=galleryGrid[7],text=str(7),image=image_lust[7], command=lambda:validate(7, galleryGrid[7]), relief=FLAT).place(relx=0.5, rely=0.5, anchor="center")
+Button(master=galleryGrid[8],text=str(8),image=image_lust[8], command=lambda:validate(8, galleryGrid[8]), relief=FLAT).place(relx=0.5, rely=0.5, anchor="center")
   
 var.mainloop()
