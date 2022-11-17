@@ -19,8 +19,6 @@ def validate(pos, parent):
     else:
         selected.append(pos)
         parent["bg"] = "#1fceff"
-
-
 def verify_captcha():
     if sorted(position) == sorted(selected):
         msg.showinfo("Success", message="You completed verification successfully")
@@ -137,3 +135,4 @@ Button(master=galleryGrid[7],text=str(7),image=image_lust[7],bd=0, highlightthic
 Button(master=galleryGrid[8],text=str(8),image=image_lust[8],bd=0, highlightthickness=0, command=lambda:validate(8, galleryGrid[8]), relief=FLAT).place(relx=0.5, rely=0.5, anchor="center")
 
 var.mainloop()
+
