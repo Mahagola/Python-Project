@@ -5,7 +5,7 @@ import random
 import os
 
 var = Tk()
-var.title('ReCaptcha)
+var.title('ReCaptcha')
 def main():
     
     global position,selected,rand_images
